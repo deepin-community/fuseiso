@@ -1,0 +1,70 @@
+fuseiso (20070708-3.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/patches (Closes: #779047):
+    + Add 02-prevent-buffer-overflow.patch. Prevent stack-based buffer overflow
+      when concatenating strings to an absolute path name. Prevention is done
+      by checking that the result will stay under the maximum path length as given
+      by the platforms PATH_MAX constant.
+    + Add 03-prevent-integer-overflow.patch. Prevent integer overflow in ZISO
+      code. Bail out if a ZF block size > 2^17 is to be read.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 01 Oct 2015 11:27:12 +0200
+
+fuseiso (20070708-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  [Colin Watson]
+  * Use the autotools-dev dh addon to update config.guess/config.sub for new
+    ports. (Closes: #727828)
+
+ -- Peter Michael Green <plugwash@debian.org>  Thu, 02 Oct 2014 00:46:49 +0000
+
+fuseiso (20070708-3) unstable; urgency=low
+
+  * Renamed dependency from fuse-utils to fuse (Closes: #689009)
+  * Fixed typo in sourcecode (Closes: #598021)
+  * Updated years in debian/copyright
+
+ -- David Paleino <dapal@debian.org>  Tue, 25 Dec 2012 08:47:20 +0100
+
+fuseiso (20070708-2) unstable; urgency=low
+
+  * Maintenance release
+  * debian/control:
+    - moved old Homepage pseudo-field into the new field in the source
+      stanza
+    - added Vcs-Git and Vcs-Browser fields
+    - Standards-Version bumped to 3.8.4
+    - removed Build-Depends on manpage-generation tools
+    - updated my e-mail address
+    - debhelper dependency bumped to 7
+  * debian/rules:
+    - rewritten to use dh7
+  * debian/fuseiso.1 manually written, remove fuseiso.1.xml
+  * debian/compat bumped to 7
+  * debian/copyright updated to be DEP5-compliant
+  * debian/manpages added
+  * debian/docs: don't install NEWS file
+  * debian/source/format: 3.0 (quilt)
+  * debian/patches/:
+    - 00-support_large_iso.patch added, imported from Fedora, thanks
+      to Thomas Bittermann
+
+ -- David Paleino <dapal@debian.org>  Wed, 16 Jun 2010 21:42:52 +0200
+
+fuseiso (20070708-1) unstable; urgency=low
+
+  * New upstream release
+    - 20070708:
+      - Patch by Ryan Thomas to fix race condition with ZISO files.
+      - Patch by Chandan Dutta Chowdhury to fix compilation on RHEL3/RHEL4.
+
+ -- David Paleino <d.paleino@gmail.com>  Sat, 08 Sep 2007 19:31:56 +0200
+
+fuseiso (20070507-1) unstable; urgency=low
+
+  * Initial release (Closes: #426857)
+
+ -- David Paleino <d.paleino@gmail.com>  Wed, 31 May 2007 13:35:39 +0200
+
